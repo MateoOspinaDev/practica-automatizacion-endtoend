@@ -1,0 +1,24 @@
+out/
+
+#Serenity
+target/
+build/
+
+#gradle
+.idea
+
+#gradle
+.gradle/
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+# Cache of project
+.gradletasknamecache
+
+# drivers
+chromedriver.exe
+geckodriver.exe
