@@ -12,14 +12,14 @@ buildscript {
         slf4Version='1.7.36'
         assertjVersion='3.23.1'
     }
-//    dependencies {
-//        classpath("net.serenity-bdd:gradle-plugin:$rootProject.ext.serenityGradlePluginVersion")
-//    }
+    dependencies {
+        classpath("net.serenity-bdd:serenity-gradle-plugin:$rootProject.ext.serenityGradlePluginVersion")
+    }
 }
 
 apply plugin: 'java'
 apply plugin: 'idea'
-//apply plugin: 'net.serenity-bdd.aggregator'
+apply plugin: 'net.serenity-bdd.aggregator'
 
 group 'org.mateoospina'
 version '1.0-SNAPSHOT'
