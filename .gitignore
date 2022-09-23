@@ -20,6 +20,6 @@ gradle-app.setting
 .gradletasknamecache
 
 #Se pueden quitar cuando se trabaja con imagenes de docker
-# drivers
+#drivers
 chromedriver.exe
 geckodriver.exe
