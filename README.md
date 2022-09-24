@@ -1,6 +1,6 @@
-#Actor
-##Juan 
-###Caracteristicas
+# Actor
+## Juan 
+### Caracteristicas
 * Nombre Completo: Juan Perez
 * Registrado: Sí
 * Nacionalidad: Colombia
@@ -11,9 +11,9 @@
   * Año: 25
 
 
-#Actor
-##Pedro Perez
-###Caracteristicas
+# Actor
+## Pedro Perez
+### Caracteristicas
 * Nombre Completo: Pedro Perez
 * Registrado: Sí
 * Nacionalidad: Colombia
