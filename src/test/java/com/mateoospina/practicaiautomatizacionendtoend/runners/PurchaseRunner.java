@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(features = {"src/test/resources/features/purchase.feature"},
-        glue = {"com.mateoospina.practicaautomatizacionendtoend.stepdefinitions"},
+        glue = {"com.mateoospina.practicaiautomatizacionendtoend.stepdefinitions"},
         snippets = CucumberOptions.SnippetType.CAMELCASE)
 public class PurchaseRunner {
 
