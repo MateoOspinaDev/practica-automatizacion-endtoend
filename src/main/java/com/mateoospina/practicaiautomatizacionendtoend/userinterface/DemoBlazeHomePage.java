@@ -10,11 +10,27 @@ import org.openqa.selenium.By;
 @DefaultUrl("https://www.demoblaze.com/")
 public class DemoBlazeHomePage extends PageObject {
 
-    public static final Target LOG_IN_MENU = Target
-            .the("Log in menu")
+    public static final Target LOG_IN_MENU = Target.the("Log in menu")
             .located(By.id("login2"));//Nombre que sale en el reporte
 
-    public static final Target CART = Target
-            .the("cart")
-            .located(By.id("//*[@id=\"navbarExample\"]/ul/li[4]/a"));
+    public static final Target CART = Target.the("cart")
+            .locatedBy("//*[@id=\"navbarExample\"]/ul/li[4]/a");
+
+    public static final Target HOME = Target.the("Home")
+            .locatedBy("//a[text()='Home ']");//Nombre que sale en el reporte
+
+    public static final Target LOG_OUT_MENU = Target.the("Home")
+            .locatedBy("//*[@id=\"logout2\"]");//Nombre que sale en el reporte
+
+    public static final Target CATEGORY_MENU = Target.the("Category of {0}")
+            .locatedBy("//a[@id='itemc'][text()='{0}']");
+
+    public static final Target PRODUCT = Target.the("Product {0}")
+            .locatedBy("//div[contains(@class,'card')]//a[text()='{0}']");
+
+    public static final Target BANNER = Target.the("homepage banner")
+            .located(By.id("narvbarx"));
+
+
 }
+
