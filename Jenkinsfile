@@ -26,5 +26,17 @@ pipeline {
                 bat 'gradlew aggregate'
             }
         }
+        post {
+            always {
+                publishHTML target: [
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: false,
+                    keepAll: true,
+                    reportName : 'Serenity Report',
+                    reportDir:   'target/site/serenity',
+                    reportFiles: 'index.html'
+                ]
+            }
+        }
     }
 }
