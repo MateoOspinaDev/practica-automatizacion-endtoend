@@ -32,7 +32,7 @@ pipeline {
                         alwaysLinkToLastBuild: false,
                         keepAll: true,
                         reportName : 'Serenity Report',
-                        reportDir:   'reports',
+                        reportDir:   'target/site/serenity',
                         reportFiles: 'index.html'
                     ]
                 }
