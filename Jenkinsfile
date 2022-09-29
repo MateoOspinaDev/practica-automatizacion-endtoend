@@ -16,11 +16,12 @@ pipeline {
             }
         }
         stage('Test') {
-            steps{
-                bat 'gradlew test'
+                steps{
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    bat 'gradlew test'
+                }
             }
         }
-
         stage('Serenity') {
             steps{
                 bat 'gradlew aggregate'
