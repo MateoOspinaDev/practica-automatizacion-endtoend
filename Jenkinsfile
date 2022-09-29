@@ -25,7 +25,7 @@ pipeline {
             steps{
                 bat 'gradlew aggregate'
             }
-            post {
+            /*post {
                 always {
                     publishHTML target: [
                         allowMissing: false,
@@ -36,7 +36,7 @@ pipeline {
                         reportFiles: 'index.html'
                     ]
                 }
-            }
+            }*/
         }
     }
 }
