@@ -25,18 +25,18 @@ pipeline {
             steps{
                 bat 'gradlew aggregate'
             }
-            /*post {
+            post {
                 always {
                     publishHTML target: [
                         allowMissing: false,
                         alwaysLinkToLastBuild: false,
                         keepAll: true,
                         reportName : 'Serenity Report',
-                        reportDir:   'target/site/serenity',
+                        reportDir:   'reports',
                         reportFiles: 'index.html'
                     ]
                 }
-            }*/
+            }
         }
     }
 }
