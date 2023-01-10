@@ -1,5 +1,6 @@
 package com.mateoospina.practicaiautomatizacionendtoend.stepdefinitions;
 
+import com.mateoospina.practicaiautomatizacionendtoend.interactions.Resize;
 import com.mateoospina.practicaiautomatizacionendtoend.model.Product;
 import com.mateoospina.practicaiautomatizacionendtoend.model.Purchaser;
 import com.mateoospina.practicaiautomatizacionendtoend.task.Add;
@@ -8,7 +9,6 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Open;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
@@ -18,7 +18,6 @@ import static com.mateoospina.practicaiautomatizacionendtoend.model.PurchaserFac
 import static com.mateoospina.practicaiautomatizacionendtoend.questions.PurchaseSuccessful.thePurchaseIsSuccessful;
 import static com.mateoospina.practicaiautomatizacionendtoend.task.Authenticate.authenticate;
 import static com.mateoospina.practicaiautomatizacionendtoend.task.Buy.buy;
-import static com.mateoospina.practicaiautomatizacionendtoend.userinterface.CategoriesPage.LAPTOPS;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
@@ -58,6 +57,7 @@ public class PurchaseStepDefinitions {
 
         theActorCalled(actorName).attemptsTo( //Metodo que recibe tareas
                 Open.browserOn(homePage), //tarea---cada metodo devuelve una tarea
+                Resize.windowToMaximize(),
                 authenticate(aPurchaser.getCredentials())
         );
         theActorInTheSpotlight().remember(PURCHASER_INFORMATION, aPurchaser);
@@ -83,7 +83,8 @@ public class PurchaseStepDefinitions {
 
     @Then("should see the message Thank you for your purchase")
     public void shouldSeeTheMessageThankYouForYourPurchase() {
-        theActorInTheSpotlight().should(seeThat(thePurchaseIsSuccessful()));
+        theActorInTheSpotlight().should(
+                seeThat(thePurchaseIsSuccessful()));
     }
 
 }

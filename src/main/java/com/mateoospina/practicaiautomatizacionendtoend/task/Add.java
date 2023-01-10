@@ -1,6 +1,5 @@
 package com.mateoospina.practicaiautomatizacionendtoend.task;
 
-import com.mateoospina.practicaiautomatizacionendtoend.model.Credentials;
 import com.mateoospina.practicaiautomatizacionendtoend.model.Product;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
@@ -24,20 +23,20 @@ public class Add implements Task {
         this.product = product;
     }
 
-    private Product product;
+    private final Product product;
 
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                WaitUntil.the(HOME, isClickable()).forNoMoreThan(10).seconds(),
-                Click.on(HOME),
-                WaitUntil.the(CATEGORY_MENU.of(product.getCategory()), isVisible()).forNoMoreThan(10).seconds(),
+                WaitUntil.the(HOME, isClickable()).forNoMoreThan(5).seconds(), //Esperamos hasta que path...
+                Click.on(HOME), //Clickeamos, podemos identificarlo por el xpath
+                WaitUntil.the(CATEGORY_MENU.of(product.getCategory()), isVisible()).forNoMoreThan(5).seconds(),
                 Click.on(CATEGORY_MENU.of(product.getCategory())),
-                WaitUntil.the(PRODUCT.of(product.getName()), isVisible()).forNoMoreThan(10).seconds(),
+                WaitUntil.the(PRODUCT.of(product.getName()), isVisible()).forNoMoreThan(5).seconds(),
                 Click.on(PRODUCT.of(product.getName())),
                 Click.on(ADD_TO_CART),
-                WaitUntil.the(alertIsPresent()).forNoMoreThan(Duration.ofSeconds(10 )),
-                Switch.toAlert()
+                WaitUntil.the(alertIsPresent()).forNoMoreThan(Duration.ofSeconds(10)),
+                Switch.toAlert() //Para aceptar la alerta
         );
     }
 

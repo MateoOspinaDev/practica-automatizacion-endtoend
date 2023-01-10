@@ -5,13 +5,10 @@ buildscript {
     }
     ext {
         serenityGradlePluginVersion = '2.4.34'
-        serenityCucumberVersion = '3.2.5'
-        serenityVersion='3.2.5'
+        serenityVersion = '3.2.5'
 
-        //junitVersion = '5.9.0'
-        junitVersion = '4.13.2'
-        slf4Version='1.7.36'
-        assertjVersion='3.23.1'
+        slf4jVersion = '2.0.3'
+        assertjVersion = '3.23.1'
     }
     dependencies {
         classpath("net.serenity-bdd:serenity-gradle-plugin:$rootProject.ext.serenityGradlePluginVersion")
@@ -22,8 +19,10 @@ apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'net.serenity-bdd.aggregator'
 
-group 'org.mateoospina'
+group 'com.cedaniel200'
 version '1.0-SNAPSHOT'
+
+java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 repositories {
     mavenCentral()
@@ -39,25 +38,15 @@ dependencies {
 
     testImplementation "net.serenity-bdd:serenity-core:$rootProject.ext.serenityVersion"
     testImplementation "net.serenity-bdd:serenity-junit:$rootProject.ext.serenityVersion"
-    testImplementation "net.serenity-bdd:serenity-cucumber:$rootProject.ext.serenityCucumberVersion"
-
-    //testImplementation "org.junit.jupiter:junit-jupiter-api:$rootProject.ext.junitVersion"
-    //testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$rootProject.ext.junitVersion"
-
-    testImplementation "junit:junit:$rootProject.ext.junitVersion"
+    testImplementation "net.serenity-bdd:serenity-cucumber:$rootProject.ext.serenityVersion"
 
     testImplementation "org.assertj:assertj-core:$rootProject.ext.assertjVersion"
-
-    testImplementation "org.slf4j:slf4j-simple:$rootProject.ext.slf4Version"
-}
-/*
-test {
-    useJUnitPlatform()
-}
-*/
-tasks.withType(Test){
-    systemProperties = System.properties as Map<String, String> //Para que se puedan usar las variables de entorno
-    maxParallelForks = Runtime.runtime.availableProcessors()//Máximo número de procesos que se pueden ejecutar en paralelo
+    testImplementation "org.slf4j:slf4j-simple:$rootProject.ext.slf4jVersion"
 }
 
-gradle.startParameter.continueOnFailure = true //Para que no pare el proceso si falla un test
+tasks.withType(Test) {
+    systemProperties = System.properties as Map<String, String>
+    maxParallelForks = Runtime.runtime.availableProcessors()
+}
+
+gradle.startParameter.continueOnFailure = true
